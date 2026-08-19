@@ -15,3 +15,12 @@ h1 {
     font-size: 3rem;
     letter-spacing: 2px;
 }
+
+.contact-line {
+    position: fixed;
+    bottom: 2in;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+}
