@@ -1,26 +1,348 @@
+/* Color Palette & Global Reset */
+:root {
+  /* Exact deep navy background matched from your logo */
+  --bg-navy: #0B131E; 
+  --bg-navy-card: #121D2C;     /* Slightly lighter dark navy for cards & sections */
+  
+  /* Brand colors derived from logo elements */
+  --kraken-red: #C83434;        /* Deep crimson red from the octopus */
+  --kraken-red-hover: #A72828;
+  --kraken-beige: #E5D9B1;      /* Vintage parchment beige from the logo text */
+  
+  /* Text & Border Colors for Dark Mode */
+  --text-main: #E2E8F0;
+  --text-muted: #94A3B8;
+  --border-color: #1E293B;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-navy);
+  line-height: 1.6;
 }
 
-h1 {
-    font-size: 3rem;
-    letter-spacing: 2px;
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.contact-line {
-    position: fixed;
-    bottom: 2in;
-    left: 0;
-    width: 100%;
-    margin: 0;
-    text-align: center;
+/* Top Utility Bar */
+.top-bar {
+  background-color: #070D15;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.top-bar-content {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.top-bar a {
+  color: var(--kraken-beige);
+  text-decoration: none;
+}
+
+.top-bar a:hover {
+  color: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--bg-navy);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px; /* Expanded height to accommodate the larger circular logo */
+}
+
+/* Logo Styling */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-img {
+  max-height: 95px; /* Enlarged logo display */
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--kraken-beige);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--kraken-red);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--kraken-red);
+  color: #ffffff !important;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--kraken-red-hover);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--kraken-beige);
+  border: 2px solid var(--kraken-beige);
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--kraken-beige);
+  color: var(--bg-navy);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  height: 65vh;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 19, 30, 0.75); /* Navy overlay over background image */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 24px;
+  color: var(--kraken-beige);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Layout & Grid Framework */
+.section {
+  padding: 80px 0;
+  background-color: var(--bg-navy);
+}
+
+.bg-alt {
+  background-color: #070D15; /* Subtle dark alternate section background */
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-title h2 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.section-title p {
+  color: var(--kraken-beige);
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.cards-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Cards */
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 24px;
+  background-color: var(--bg-navy-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.card-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--kraken-red);
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.card-link {
+  color: var(--kraken-beige);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: var(--kraken-red);
+}
+
+/* Destination Cards */
+.destinations-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.dest-card {
+  background-color: var(--bg-navy-card);
+  border: 1px solid var(--border-color);
+  color: var(--kraken-beige);
+  padding: 40px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.1rem;
+  transition: border-color 0.2s ease;
+}
+
+.dest-card:hover {
+  border-color: var(--kraken-red);
+}
+
+/* Footer */
+.footer {
+  background-color: #05080E;
+  color: var(--text-muted);
+  padding: 40px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer a {
+  color: var(--kraken-beige);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--kraken-red);
+}
+
+.footer-content > * {
+  margin-bottom: 12px;
+}
+
+.legal-text {
+  font-size: 0.78rem;
+  color: #475569;
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* Hero Large Logo Styling */
+.hero-logo-wrapper {
+  margin-bottom: 20px;
+}
+
+.hero-logo-img {
+  width: 220px;            /* Substantial display size for artwork detail */
+  height: auto;
+  max-width: 80vw;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+}
+
+/* Tagline Typography */
+.tagline {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--kraken-beige);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.hero-subtext {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  margin-bottom: 28px;
+}
+
+.footer-tagline {
+  color: var(--kraken-beige);
+  font-style: italic;
+  font-size: 0.95rem;
 }
