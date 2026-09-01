@@ -212,54 +212,64 @@ body {
   gap: 24px;
 }
 
-.cards-grid {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.services-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-/* Cards */
-.card {
+/* Service Cards */
+.service-card {
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 24px;
+  padding: 28px 22px;
   background-color: var(--bg-navy-card);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  align-items: flex-start;
+  gap: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.card:hover {
+.service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  border-color: var(--kraken-red);
 }
 
-.card-badge {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--kraken-red);
-  margin-bottom: 12px;
+.service-card-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: rgba(200, 52, 52, 0.12);
+  font-size: 1.5rem;
 }
 
-.card h3 {
+.service-card h3 {
   font-size: 1.2rem;
-  margin-bottom: 10px;
   color: #ffffff;
 }
 
-.card p {
+.service-card p {
   color: var(--text-muted);
   font-size: 0.95rem;
-  margin-bottom: 20px;
 }
 
-.card-link {
+/* Clickable service card wrapper */
+.service-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Small CTA used inside cards */
+.service-cta {
   color: var(--kraken-beige);
   font-weight: 600;
   text-decoration: none;
 }
 
-.card-link:hover {
+.service-cta:hover {
   color: var(--kraken-red);
 }
 
@@ -304,6 +314,29 @@ body {
 
 .footer-content > * {
   margin-bottom: 12px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 18px 0 10px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.social-link:hover {
+  border-color: var(--kraken-red);
+  color: var(--kraken-red);
 }
 
 .legal-text {
