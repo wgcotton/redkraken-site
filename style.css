@@ -34,30 +34,6 @@ body {
   padding: 0 20px;
 }
 
-/* Top Utility Bar */
-.top-bar {
-  background-color: #070D15;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.top-bar-content {
-  display: flex;
-  justify-content: flex-end;
-  gap: 20px;
-}
-
-.top-bar a {
-  color: var(--kraken-beige);
-  text-decoration: none;
-}
-
-.top-bar a:hover {
-  color: #ffffff;
-}
-
 /* Navbar */
 .navbar {
   background-color: var(--bg-navy);
@@ -67,11 +43,50 @@ body {
   z-index: 1000;
 }
 
-.nav-container {
-  display: flex;
-  justify-content: space-between;
+/* Three-column header layout */
+.head-left {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* left | center | right */
   align-items: center;
-  height: 120px; /* Expanded height to accommodate the larger circular logo */
+  height: 120px; /* keep your existing height */
+  padding: 0 20px;
+}
+
+/* Left column (logo) */
+.brand-logo {
+  justify-self: start;
+}
+
+/* Center column (phone + email) */
+.head-mid {
+  justify-self: center;
+  text-align: center;
+  color: var(--text-light);
+  line-height: 1.4;
+  font-size: 0.85rem;
+  padding: 8px 0;
+}
+
+.head-mid a {
+  color: var(--kraken-beige);
+  text-decoration: none;
+}
+
+.head-mid a:hover {
+  color: #ffffff;
+}
+
+
+/* Right column (nav button) */
+.head-right {
+  justify-self: end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.head-right li {
+  display: inline-block;
 }
 
 /* Logo Styling */
@@ -142,8 +157,9 @@ body {
 .hero {
   position: relative;
   background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-  height: 65vh;
-  min-height: 450px;
+  margin-top: 5px; /* header is 120px, give a little breathing room */
+  height: 545px; /* Adjusted height for a more immersive hero section */
+  min-height: 140px; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,7 +177,7 @@ body {
   position: relative;
   z-index: 1;
   max-width: 700px;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 .hero-content h1 {
@@ -175,6 +191,17 @@ body {
   font-size: 1.25rem;
   margin-bottom: 24px;
   color: var(--kraken-beige);
+}
+
+.tagline {
+  text-align: center;
+}
+
+.hero-subtext {
+  text-align: justify;
+  text-justify: inter-word; /* optional but improves spacing */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .hero-buttons {
